@@ -1,0 +1,6 @@
+kubernetes_cluster_name    = "local"
+flux_namespace             = "flux-system"
+kubernetes_kubeconfig_path = "~/.kube/config"
+flux_sync_github_owner     = "terzey"
+flux_sync_repository_name  = "k9s"
+flux_sync_target_path      = "clusters/dev"
