@@ -39,6 +39,11 @@ variable "kustomization_interval" {
   description = "Interval to fetch kustomization"
 }
 
+variable "deploy_apps" {
+  type        = bool
+  description = "deploy apps GitRepository and Kustomization"
+}
+
 locals {
   config_path = "${path.module}/kubeconfig.config"
   namespace   = "flux-system"

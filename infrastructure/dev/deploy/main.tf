@@ -66,6 +66,7 @@ module "flux" {
 
 module "apps" {
   source                     = "../../base/apps"
+  count                      = var.deploy_apps ? 1 : 0
   depends_on                 = [module.flux]
   namespace                  = local.namespace
   branch                     = local.branch
