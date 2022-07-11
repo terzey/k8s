@@ -5,7 +5,10 @@ set -ex
 
 DIR="$(pwd)"
 
-cd "${DIR}"/infrastructure/flux
+cd "${DIR}"/infrastructure/base/flux
+terraform fmt
+
+cd "${DIR}"/infrastructure/base/apps
 terraform fmt
 
 cd "${DIR}"/infrastructure/dev/deploy

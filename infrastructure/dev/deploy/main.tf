@@ -55,14 +55,27 @@ provider "github" {
 }
 
 module "flux" {
-  source                    = "../../flux"
-  namespace                 = "flux-system"
-  branch                    = "dev"
-  github_owner              = var.github_owner
-  repository_name           = var.repository_name
-  repository_visibility     = var.repository_visibility
-  target_path               = "clusters/dev"
-  github_flux_user_name     = var.github_owner
-  github_flux_user_password = var.github_token
-  apps_path                 = var.apps_path
+  source                = "../../base/flux"
+  namespace             = local.namespace
+  branch                = local.branch
+  github_owner          = var.github_owner
+  repository_name       = var.repository_name
+  repository_visibility = var.repository_visibility
+  target_path           = "clusters/dev"
+}
+
+module "apps" {
+  source                     = "../../base/apps"
+  count                      = var.deploy_apps ? 1 : 0
+  depends_on                 = [module.flux]
+  namespace                  = local.namespace
+  branch                     = local.branch
+  github_owner               = var.github_owner
+  repository_name            = var.repository_name
+  github_flux_user_name      = var.github_owner
+  github_flux_user_password  = var.github_token
+  apps_path                  = var.apps_path
+  apps_namespace             = var.apps_namespace
+  github_repository_interval = var.github_repository_interval
+  kustomization_interval     = var.kustomization_interval
 }
