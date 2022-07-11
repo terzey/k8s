@@ -35,7 +35,7 @@ data "flux_install" "main" {
 
 data "flux_sync" "main" {
   target_path = var.target_path
-  url         = local.repo_url_ssh
+  url         = local.repo_url
   branch      = var.branch
 }
 
@@ -114,22 +114,25 @@ resource "github_repository_deploy_key" "main" {
 }
 
 resource "github_repository_file" "install" {
-  repository = github_repository.main.name
-  file       = data.flux_install.main.path
-  content    = data.flux_install.main.content
-  branch     = var.branch
+  repository          = github_repository.main.name
+  file                = data.flux_install.main.path
+  content             = data.flux_install.main.content
+  branch              = var.branch
+  overwrite_on_create = true
 }
 
 resource "github_repository_file" "sync" {
-  repository = github_repository.main.name
-  file       = data.flux_sync.main.path
-  content    = data.flux_sync.main.content
-  branch     = var.branch
+  repository          = github_repository.main.name
+  file                = data.flux_sync.main.path
+  content             = data.flux_sync.main.content
+  branch              = var.branch
+  overwrite_on_create = true
 }
 
 resource "github_repository_file" "kustomize" {
-  repository = github_repository.main.name
-  file       = data.flux_sync.main.kustomize_path
-  content    = data.flux_sync.main.kustomize_content
-  branch     = var.branch
+  repository          = github_repository.main.name
+  file                = data.flux_sync.main.kustomize_path
+  content             = data.flux_sync.main.kustomize_content
+  branch              = var.branch
+  overwrite_on_create = true
 }

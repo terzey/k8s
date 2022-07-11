@@ -1,12 +1,11 @@
+variable "namespace" {
+  description = "Kubernetes namespace for flux"
+  type        = string
+}
+
 variable "github_owner" {
   type        = string
   description = "github owner"
-}
-
-variable "github_token" {
-  type        = string
-  description = "github token"
-  sensitive   = true
 }
 
 variable "repository_name" {
@@ -14,9 +13,20 @@ variable "repository_name" {
   description = "github repository name"
 }
 
-variable "repository_visibility" {
+variable "github_flux_user_name" {
   type        = string
-  description = "How visible is the github repo"
+  description = "github user for flux"
+}
+
+variable "github_flux_user_password" {
+  type        = string
+  description = "github user password for flux"
+  sensitive   = true
+}
+
+variable "branch" {
+  type        = string
+  description = "branch name"
 }
 
 variable "apps_path" {
@@ -40,7 +50,5 @@ variable "kustomization_interval" {
 }
 
 locals {
-  config_path = "${path.module}/kubeconfig.config"
-  namespace   = "flux-system"
-  branch      = "dev"
+  repo_url = "https://github.com/${var.github_owner}/${var.repository_name}.git"
 }
