@@ -1,3 +1,6 @@
+#
+# Source: https://registry.terraform.io/providers/fluxcd/flux/latest/docs/guides/github
+#
 terraform {
   required_providers {
     flux = {
@@ -11,7 +14,6 @@ terraform {
     }
     github = {
       source  = "integrations/github"
-      version = ">= 4.5.2"
     }
   }
 }
@@ -40,13 +42,7 @@ data "flux_sync" "main" {
 # Kubernetes
 resource "kubernetes_namespace" "flux_system" {
   metadata {
-    annotations = {
-      name = "flux-system"
-    }
-    labels = {
-      name = "flux-system"
-    }
-    name = "flux-system"
+    name = var.namespace
   }
 }
 

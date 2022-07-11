@@ -1,8 +1,3 @@
-variable "namespace" {
-  description = "Kubernetes namespace for flux"
-  type = string
-}
-
 variable "github_owner" {
   type        = string
   description = "github owner"
@@ -11,7 +6,7 @@ variable "github_owner" {
 variable "github_token" {
   type        = string
   description = "github token"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "repository_name" {
@@ -24,12 +19,6 @@ variable "repository_visibility" {
   description = "How visible is the github repo"
 }
 
-variable "branch" {
-  type        = string
-  description = "branch name"
-}
-
-variable "target_path" {
-  type        = string
-  description = "flux sync target path"
+locals {
+  config_path = "${path.module}/kubeconfig.config"
 }

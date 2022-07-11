@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -ex
 
-. ./bin/profile.sh
+. ./bin/profile-dev.sh
 
-cd ./terraform
+cd ./clusters/dev/deploy
 terraform init
 terraform workspace new "${WORKSPACE}" || terraform workspace select "${WORKSPACE}"
-terraform destroy -lock=true
+terraform destroy -lock=true -var-file=./terraform.tfvars -auto-approve

@@ -7,4 +7,9 @@ if [ -f "${DOT_ENV}" ]; then
   . "${DOT_ENV}"
 fi
 
-export WORKSPACE="terzey-k9s"
+# shellcheck disable=SC2155
+export REPOSITORY_NAME="$(basename "$(git rev-parse --show-toplevel)")"
+export TF_VAR_repository_name="${REPOSITORY_NAME}"
+export TF_VAR_github_token="${GITHUB_TOKEN}"
+export TF_VAR_github_owner="terzey"
+export TF_VAR_repository_visibility="private"
