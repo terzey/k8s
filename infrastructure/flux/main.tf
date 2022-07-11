@@ -4,16 +4,16 @@
 terraform {
   required_providers {
     flux = {
-      source  = "fluxcd/flux"
+      source = "fluxcd/flux"
     }
     kubernetes = {
-      source  = "hashicorp/kubernetes"
+      source = "hashicorp/kubernetes"
     }
     kubectl = {
-      source  = "gavinbunney/kubectl"
+      source = "gavinbunney/kubectl"
     }
     github = {
-      source  = "integrations/github"
+      source = "integrations/github"
     }
   }
 }
@@ -35,7 +35,7 @@ data "flux_install" "main" {
 
 data "flux_sync" "main" {
   target_path = var.target_path
-  url         = "ssh://git@github.com/${var.github_owner}/${var.repository_name}.git"
+  url         = local.repo_url_ssh
   branch      = var.branch
 }
 
@@ -58,12 +58,12 @@ locals {
   install = [for v in data.kubectl_file_documents.install.documents : {
     data : yamldecode(v)
     content : v
-  }
+    }
   ]
   sync = [for v in data.kubectl_file_documents.sync.documents : {
     data : yamldecode(v)
     content : v
-  }
+    }
   ]
 }
 

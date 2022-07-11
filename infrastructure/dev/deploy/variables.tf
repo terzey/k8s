@@ -19,6 +19,11 @@ variable "repository_visibility" {
   description = "How visible is the github repo"
 }
 
+variable "apps_path" {
+  type        = string
+  description = "Path to apps overlay"
+}
+
 locals {
   config_path = "${path.module}/kubeconfig.config"
 }

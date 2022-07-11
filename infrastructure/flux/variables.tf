@@ -1,6 +1,6 @@
 variable "namespace" {
   description = "Kubernetes namespace for flux"
-  type = string
+  type        = string
 }
 
 variable "github_owner" {
@@ -8,10 +8,15 @@ variable "github_owner" {
   description = "github owner"
 }
 
-variable "github_token" {
+variable "github_flux_user_name" {
   type        = string
-  description = "github token"
-  sensitive = true
+  description = "github user for flux"
+}
+
+variable "github_flux_user_password" {
+  type        = string
+  description = "github user password for flux"
+  sensitive   = true
 }
 
 variable "repository_name" {
@@ -32,4 +37,14 @@ variable "branch" {
 variable "target_path" {
   type        = string
   description = "flux sync target path"
+}
+
+variable "apps_path" {
+  type        = string
+  description = "Path to apps overlay"
+}
+
+locals {
+  repo_url_ssh   = "ssh://git@github.com/${var.github_owner}/${var.repository_name}.git"
+  repo_url_https = "https://github.com/${var.github_owner}/${var.repository_name}.git"
 }

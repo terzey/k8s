@@ -55,12 +55,14 @@ provider "github" {
 }
 
 module "flux" {
-  source                = "../../flux"
-  namespace             = "flux-system"
-  branch                = "dev"
-  github_owner          = var.github_owner
-  github_token          = var.github_token
-  repository_name       = var.repository_name
-  repository_visibility = var.repository_visibility
-  target_path           = "clusters/dev"
+  source                    = "../../flux"
+  namespace                 = "flux-system"
+  branch                    = "dev"
+  github_owner              = var.github_owner
+  repository_name           = var.repository_name
+  repository_visibility     = var.repository_visibility
+  target_path               = "clusters/dev"
+  github_flux_user_name     = var.github_owner
+  github_flux_user_password = var.github_token
+  apps_path                 = var.apps_path
 }

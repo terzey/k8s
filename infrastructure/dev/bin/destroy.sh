@@ -6,7 +6,7 @@ set -ex
 cd ./infrastructure/dev/deploy
 terraform init
 terraform workspace new "${WORKSPACE}" || terraform workspace select "${WORKSPACE}"
-terraform plan -out=infrastructure.tfplan -lock=true -target=local_sensitive_file.kubeconfig
+terraform plan -out=infrastructure.tfplan -lock=true -target=local_sensitive_file.kubeconfig -var-file=./terraform.tfvars
 terraform apply -target=local_sensitive_file.kubeconfig infrastructure.tfplan
 terraform state rm module.flux.github_repository.main || echo "github repository is already deleted, skipping"
 terraform state rm local_sensitive_file.kubeconfig || echo "kubeconfig is already deleted, skipping"
