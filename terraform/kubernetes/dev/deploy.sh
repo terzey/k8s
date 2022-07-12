@@ -7,7 +7,7 @@ cd ./terraform/kubernetes/main
 terraform init
 terraform fmt
 terraform validate
-terraform workspace new "${WORKSPACE}" || terraform workspace select "${WORKSPACE}"
+create_or_select_tf_namespace "${WORKSPACE}"
 terraform plan -out=kubernetes.tfplan -lock=true -var-file=../dev/terraform.tfvars
 terraform apply kubernetes.tfplan
 
