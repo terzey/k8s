@@ -5,5 +5,5 @@ set -ex
 
 cd ./clusters/dev/deploy
 terraform init
-terraform workspace new "${WORKSPACE}" || terraform workspace select "${WORKSPACE}"
+create_or_select_tf_namespace "${WORKSPACE}"
 terraform destroy -lock=true -var-file=../dev/terraform.tfvars -auto-approve

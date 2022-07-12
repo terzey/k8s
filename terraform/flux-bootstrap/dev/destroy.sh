@@ -5,7 +5,7 @@ set -ex
 
 cd ./terraform/flux-bootstrap/main
 terraform init
-terraform workspace new "${WORKSPACE}" || terraform workspace select "${WORKSPACE}"
+create_or_select_tf_namespace "${WORKSPACE}"
 terraform plan -out=flux-bootstrap.tfplan -lock=true -var-file=../dev/terraform.tfvars \
   -target=local_sensitive_file.kubeconfig
 terraform apply -target=local_sensitive_file.kubeconfig flux-bootstrap.tfplan
