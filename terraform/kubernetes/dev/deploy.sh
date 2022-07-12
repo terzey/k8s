@@ -3,13 +3,13 @@ set -ex
 
 . ./bin/profile-dev.sh
 
-cd ./clusters/dev/deploy
+cd ./terraform/kubernetes/main
 terraform init
 terraform fmt
 terraform validate
 terraform workspace new "${WORKSPACE}" || terraform workspace select "${WORKSPACE}"
-terraform plan -out=cluster.tfplan -lock=true -var-file=./terraform.tfvars
-terraform apply cluster.tfplan
+terraform plan -out=kubernetes.tfplan -lock=true -var-file=../dev/terraform.tfvars
+terraform apply kubernetes.tfplan
 
 cat <<EOF
 |------------------------------------------------

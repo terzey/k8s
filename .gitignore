@@ -5,5 +5,5 @@
 .idea
 bin/.env.sh
 
-/clusters/dev/deploy/local-config
-/infrastructure/dev/deploy/kubeconfig.config
+/terraform/flux-bootstrap/main/kubeconfig.config
+/terraform/kubernetes/main/local-dev-config

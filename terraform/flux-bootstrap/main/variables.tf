@@ -8,6 +8,12 @@ variable "github_owner" {
   description = "github owner"
 }
 
+variable "github_token" {
+  type        = string
+  description = "github token"
+  sensitive   = true
+}
+
 variable "repository_name" {
   type        = string
   description = "github repository name"
@@ -29,5 +35,6 @@ variable "target_path" {
 }
 
 locals {
-  repo_url = "ssh://git@github.com/${var.github_owner}/${var.repository_name}.git"
+  repo_url    = "ssh://git@github.com/${var.github_owner}/${var.repository_name}.git"
+  config_path = "${path.module}/kubeconfig.config"
 }
