@@ -4,18 +4,57 @@
 terraform {
   required_providers {
     flux = {
-      source = "fluxcd/flux"
+      source  = "fluxcd/flux"
+      version = ">= 0.15.3"
     }
     kubernetes = {
-      source = "hashicorp/kubernetes"
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.12.1"
     }
     kubectl = {
-      source = "gavinbunney/kubectl"
+      source  = "gavinbunney/kubectl"
+      version = ">= 1.14.0"
     }
     github = {
-      source = "integrations/github"
+      source  = "integrations/github"
+      version = ">= 4.5.2"
     }
   }
+  backend "s3" {
+    bucket  = "terraform-state-terzey"
+    key     = "github.com/terzey/k9s/flux-bootstrap/terraform.tfstate"
+    region  = "eu-west-1"
+    encrypt = true
+  }
+}
+
+data "terraform_remote_state" "cluster" {
+  backend   = "s3"
+  workspace = terraform.workspace
+  config = {
+    bucket = "terraform-state-terzey"
+    key    = "github.com/terzey/k9s/kubernetes/terraform.tfstate"
+    region = "eu-west-1"
+  }
+}
+
+provider "flux" {}
+
+resource "local_sensitive_file" "kubeconfig" {
+  content  = data.terraform_remote_state.cluster.outputs.kubeconfig
+  filename = local.config_path
+}
+
+provider "kubernetes" {
+  config_path    = local.config_path
+  config_context = data.terraform_remote_state.cluster.outputs.context
+}
+
+provider "kubectl" {}
+
+provider "github" {
+  owner = var.github_owner
+  token = var.github_token
 }
 
 locals {
@@ -43,6 +82,11 @@ data "flux_sync" "main" {
 resource "kubernetes_namespace" "flux_system" {
   metadata {
     name = var.namespace
+  }
+  lifecycle {
+    ignore_changes = [
+      metadata[0].labels,
+    ]
   }
 }
 
@@ -98,7 +142,7 @@ resource "kubernetes_secret" "main" {
 resource "github_repository" "main" {
   name       = var.repository_name
   visibility = var.repository_visibility
-  auto_init  = true
+  auto_init  = false
 }
 
 resource "github_branch_default" "main" {
