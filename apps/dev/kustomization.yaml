@@ -1,14 +1,6 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: hello-nest
-  namespace: app
-spec:
-  releaseName: app
-  chart:
-    spec:
-      chart: podinfo
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-        namespace: flux-system
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+
+resources:
+  - ../base
