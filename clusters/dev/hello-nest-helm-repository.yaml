@@ -5,4 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  url: https://helm-repository-terzey.s3.eu-west-1.amazonaws.com/charts
+  url: https://k9s-helm-repository-bucket-dev.s3.eu-west-1.amazonaws.com/hello-nest/charts

@@ -16,4 +16,4 @@ spec:
       interval: 1m0s
   values:
     app:
-      replicaCount: 2
+      replicaCount: 3

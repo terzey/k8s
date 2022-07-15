@@ -12,6 +12,10 @@ terraform {
       source  = "hashicorp/http"
       version = ">= 2.2.0"
     }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.22"
+    }
   }
   backend "s3" {
     bucket  = "terraform-state-terzey"
@@ -48,3 +52,7 @@ provider "kubernetes" {
 provider "kubectl" {}
 
 provider "http" {}
+
+provider "aws" {
+  region = "eu-west-1"
+}
