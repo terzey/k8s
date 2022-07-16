@@ -11,4 +11,3 @@ bin/.env.sh
 
 **/charts/*.tgz
 Chart.lock
-del/
