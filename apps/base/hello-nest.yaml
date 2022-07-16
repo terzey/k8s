@@ -13,6 +13,15 @@ spec:
         name: hello-nest
         namespace: app
       interval: 1m0s
+  test:
+    enable: true
+    ignoreFalures: false
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      remediateLastFailure: true
   values:
     app:
       replicaCount: 3
