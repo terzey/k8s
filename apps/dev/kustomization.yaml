@@ -4,3 +4,6 @@ namespace: app
 
 resources:
   - ../base
+
+patchesStrategicMerge:
+  - hello-nest.yaml
