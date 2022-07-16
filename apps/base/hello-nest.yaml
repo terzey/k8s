@@ -15,7 +15,7 @@ spec:
       interval: 1m0s
   test:
     enable: true
-    ignoreFalures: false
+    ignoreFailures: false
   install:
     remediation:
       retries: 3
