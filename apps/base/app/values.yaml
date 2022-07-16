@@ -1,3 +1,0 @@
-hello-nest:
-  app:
-    replicaCount: 1
