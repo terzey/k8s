@@ -9,13 +9,13 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: default
+    name: flux-system
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: hello-nest
-  namespace: flux-system
+  namespace: default
 spec:
   interval: 1m0s
   url: https://k9s-helm-repository-bucket-dev.s3.eu-west-1.amazonaws.com/hello-nest/charts
