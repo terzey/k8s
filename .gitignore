@@ -8,3 +8,7 @@ bin/.env.sh
 /terraform/flux-bootstrap/main/kubeconfig.config
 /terraform/kubernetes/main/local-dev-config
 /terraform/infrastructure/main/kubeconfig.config
+
+**/charts/*.tgz
+Chart.lock
+del/
