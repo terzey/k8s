@@ -9,7 +9,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: default
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
@@ -24,7 +24,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: app
-  namespace: flux-system
+  namespace: default
 spec:
   interval: 1m0s
   url: https://k9s-helm-repository-bucket-dev.s3.eu-west-1.amazonaws.com/app/charts
