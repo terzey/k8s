@@ -3,6 +3,9 @@ kind: HelmRelease
 metadata:
   name: hello-nest
 spec:
+  chart:
+    spec:
+      version: 0.0.2
   values:
     app:
       replicaCount: 1
