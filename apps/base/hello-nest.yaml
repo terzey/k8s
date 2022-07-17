@@ -3,7 +3,7 @@ kind: HelmRelease
 metadata:
   name: hello-nest
 spec:
-  interval: 5m0s
+  interval: 2m0s
   releaseName: app
   dependsOn:
     - name: infrastructure
