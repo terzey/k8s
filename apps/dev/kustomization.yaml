@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: app
 
 resources: []
- # - ../base
+  - ../base
 
 patchesStrategicMerge: []
- # - hello-nest.yaml
+  - hello-nest.yaml
