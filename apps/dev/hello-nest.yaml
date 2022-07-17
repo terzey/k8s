@@ -5,4 +5,4 @@ metadata:
 spec:
   values:
     app:
-      replicaCount: 2
+      replicaCount: 1
