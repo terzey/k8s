@@ -6,7 +6,7 @@ spec:
   interval: 5m0s
   releaseName: app
   dependsOn:
-    - infrastructure
+    - name: infrastructure
   chart:
     spec:
       chart: hello-nest
