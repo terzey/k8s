@@ -4,7 +4,7 @@ metadata:
   name: app
   namespace: app
 spec:
-  interval: 10m0s
+  interval: 2m0s
   path: ./apps/dev
   prune: true
   sourceRef:
@@ -18,5 +18,5 @@ metadata:
   name: hello-nest
   namespace: app
 spec:
-  interval: 1m0s
+  interval: 10m0s
   url: https://k9s-helm-repository-bucket-dev.s3.eu-west-1.amazonaws.com/hello-nest/charts
