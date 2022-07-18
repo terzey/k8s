@@ -3,3 +3,6 @@ kind: Kustomization
 
 resources:
   - github.com/prometheus-operator/kube-prometheus?ref=release-0.11
+
+patchesStrategicMerge:
+  - clusterrole--prometheus-k8s.yml

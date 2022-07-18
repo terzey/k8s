@@ -11,3 +11,4 @@ bin/.env.sh
 
 **/charts/*.tgz
 Chart.lock
+/build/
