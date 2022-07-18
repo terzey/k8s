@@ -3,11 +3,12 @@ kind: HelmRelease
 metadata:
   name: hello-nest
 spec:
-  interval: 5m0s
+  interval: 2m0s
+  releaseName: app
   chart:
     spec:
       chart: hello-nest
-      version: 0.0.4
+      version: 0.0.12
       sourceRef:
         kind: HelmRepository
         name: hello-nest
@@ -17,6 +18,7 @@ spec:
     enable: true
     ignoreFailures: false
   install:
+    replace: true
     remediation:
       retries: 3
   upgrade:
