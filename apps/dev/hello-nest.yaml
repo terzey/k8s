@@ -8,4 +8,4 @@ spec:
       version: 0.1.12
   values:
     app:
-      replicaCount: 3
+      replicaCount: 2
