@@ -11,7 +11,7 @@ spec:
     branch: dev
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/terzey/k9s.git
+  url: ssh://git@github.com/terzey/k8s.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
