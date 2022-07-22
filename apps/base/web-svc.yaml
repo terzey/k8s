@@ -27,3 +27,5 @@ spec:
   values:
     app:
       replicaCount: 3
+  postRender:
+    patches: []
