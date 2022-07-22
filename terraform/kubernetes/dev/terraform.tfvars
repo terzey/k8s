@@ -1,1 +1,1 @@
-cluster_name = "k9s-dev"
+cluster_name = "k8s-dev"

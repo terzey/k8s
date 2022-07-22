@@ -6,8 +6,8 @@ module "s3_bucket" {
 resource "aws_s3_bucket_public_access_block" "this" {
   bucket = module.s3_bucket.s3_bucket_id
 
-  block_public_acls   = true
-  block_public_policy = true
+  block_public_acls   = false
+  block_public_policy = false
 }
 
 resource "aws_s3_bucket_policy" "public" {

@@ -22,7 +22,7 @@ terraform {
   }
   backend "s3" {
     bucket  = "terraform-state-terzey"
-    key     = "github.com/terzey/k9s/flux-bootstrap/terraform.tfstate"
+    key     = "github.com/terzey/k8s/flux-bootstrap/terraform.tfstate"
     region  = "eu-west-1"
     encrypt = true
   }
@@ -33,7 +33,7 @@ data "terraform_remote_state" "cluster" {
   workspace = terraform.workspace
   config = {
     bucket = "terraform-state-terzey"
-    key    = "github.com/terzey/k9s/kubernetes/terraform.tfstate"
+    key    = "github.com/terzey/k8s/kubernetes/terraform.tfstate"
     region = "eu-west-1"
   }
 }

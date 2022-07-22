@@ -8,7 +8,7 @@ terraform {
   }
   backend "s3" {
     bucket  = "terraform-state-terzey"
-    key     = "github.com/terzey/k9s/kubernetes/terraform.tfstate"
+    key     = "github.com/terzey/k8s/kubernetes/terraform.tfstate"
     region  = "eu-west-1"
     encrypt = true
   }

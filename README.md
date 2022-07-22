@@ -1,4 +1,46 @@
-# K9S
+# K8S
+## Repository structure
+```shell
+├── apps
+│   ├── base
+│   ├── dev
+│   ├── stage
+│   └── prod
+├── clusters                # Flux resources installed to "flux-system" kubernetes namespace
+│   ├── dev                 # Flux resources for dev cluster
+│   │   ├── flux-system     # Bootstrapped by "terraform/flux-bootstrap/dev"
+│   │   └── flux-resources  # Custom Flux resources: HelmRepository(ies), Kustomization(s), Alert(s)
+│   ├── stage               # Flux resources for stage cluster
+│   └── prod                # Flux resources for prod cluster
+├── infrastructure
+│   ├── base
+│   │   └── prometheus
+│   ├── dev
+│   ├── stage
+│   └── prod 
+└── terraform
+    ├── kubernetes
+    │   ├── main
+    │   ├── dev
+    │   ├── stage
+    │   └── prod
+    ├── infrastructure
+    │   ├── main
+    │   ├── dev
+    │   ├── stage
+    │   └── prod
+    └── flux-bootstrap
+        ├── main
+        ├── dev
+        ├── stage
+        └── prod
+
+```
+## Terraform
+### Deploy dev cluster
+```shell
+bash terraform/kubernetes/dev/deploy.sh
+```
 ## Ingress
 Install nginx ingress controller [doc](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start)
 ```shell
