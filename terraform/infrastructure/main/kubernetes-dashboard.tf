@@ -7,8 +7,9 @@ data "kubectl_file_documents" "dashboard" {
 }
 
 resource "kubectl_manifest" "dashboard" {
-  for_each  = toset([for document in data.kubectl_file_documents.dashboard.documents : document])
-  yaml_body = each.value
+  for_each         = toset([for document in data.kubectl_file_documents.dashboard.documents : document])
+  yaml_body        = each.value
+  wait_for_rollout = false
 }
 
 data "kubectl_path_documents" "admin_user" {

@@ -20,8 +20,7 @@ function create_or_select_tf_namespace() {
 function import_tf_resource() {
   RESOURCE_NAME="${1}"
   RESOURCE_VALUE="${2}"
-  VAR_FILE="${3}"
-  MESSAGE=$(terraform import -var-file="${VAR_FILE}" "${RESOURCE_NAME}" "${RESOURCE_VALUE}" || true)
+  MESSAGE=$(terraform import "${@:3}" "${RESOURCE_NAME}" "${RESOURCE_VALUE}" || true)
   if [[ "${MESSAGE}" != *"Import prepared"* ]]; then
     echo "Failed to import resource name: ${RESOURCE_NAME}, value ${RESOURCE_VALUE}"
     exit 1
@@ -30,9 +29,8 @@ function import_tf_resource() {
 
 function update_tf_resource() {
   RESOURCE_NAME="${1}"
-  VAR_FILE="${2}"
   TF_PLAN=update-resource.tfplan
-  terraform plan -out="${TF_PLAN}" -lock=true -target="${RESOURCE_NAME}" -var-file="${VAR_FILE}"
+  terraform plan -out="${TF_PLAN}" -lock=true -target="${RESOURCE_NAME}" "${@:2}"
   terraform apply -target="${RESOURCE_NAME}" "${TF_PLAN}"
 }
 
@@ -42,3 +40,4 @@ export TF_VAR_repository_name="${REPOSITORY_NAME}"
 export TF_VAR_github_token="${GITHUB_TOKEN}"
 export TF_VAR_github_owner="terzey"
 export TF_VAR_repository_visibility="private"
+export TF_VAR_registry_password=${DOCKER_PASSWORD}

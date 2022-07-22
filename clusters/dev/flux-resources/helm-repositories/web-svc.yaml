@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: web-svc
+spec:
+  interval: 1m0s
+  url: https://k8s-helm-repository-bucket-dev.s3.eu-west-1.amazonaws.com/web-svc/charts

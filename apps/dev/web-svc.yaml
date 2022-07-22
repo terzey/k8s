@@ -1,11 +1,11 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: hello-nest
+  name: web-svc
 spec:
   chart:
     spec:
-      version: 0.1.4
+      version: 0.1.22
   values:
     app:
-      replicaCount: 2
+      replicaCount: 1

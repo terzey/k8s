@@ -1,0 +1,37 @@
+apiVersion: v1
+data:
+  address: aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDAzUEtBM0JSTlovQjAzUVNRNUtSQkovWkZ5Q0FEdDNkRHpkdGVEeWdBUW5WZnZr
+kind: Secret
+metadata:
+  name: slack-url
+  namespace: flux-system
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: slack
+spec:
+  type: slack
+  channel: general
+  secretRef:
+    name: slack-url
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: on-call-webapp
+spec:
+  providerRef:
+    name: slack
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: '*'
+    - kind: Kustomization
+      name: '*'
+    - kind: HelmRepository
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: HelmChart
+      name: '*'
