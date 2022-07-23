@@ -9,3 +9,7 @@ spec:
   values:
     app:
       replicaCount: 1
+    prometheus:
+      alerting:
+        memoryUsage:
+          thresholdRatio: 0.5
