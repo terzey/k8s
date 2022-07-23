@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: alertmanager-config
+  labels:
+    alertmanagerConfig: alertmanager-config
+spec:
+  route:
+    groupBy: ['job']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'slack'
+  receivers:
+    - name: 'slack'
+      wechatConfigs:
+        - apiURL: 'https://hooks.slack.com/services/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EugeneTerzey-MBP:k8s'
