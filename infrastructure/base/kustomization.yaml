@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
   - prometheus
-#  - alertmanager-config.yaml
 

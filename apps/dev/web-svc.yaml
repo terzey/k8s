@@ -8,7 +8,7 @@ spec:
       version: 0.1.23
   values:
     app:
-      replicaCount: 2
+      replicaCount: 1
     prometheus:
       alerting:
         memoryUsage:
