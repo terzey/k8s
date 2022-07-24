@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
   name: alertmanager-config
-  namespace: apps
+  namespace: monitoring
   labels:
     alertmanagerConfig: alertmanager-config
 spec:
@@ -25,4 +25,4 @@ data:
 kind: Secret
 metadata:
   name: slack-url
-  namespace: apps
+  namespace: monitoring
