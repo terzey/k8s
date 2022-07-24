@@ -27,3 +27,7 @@ spec:
   values:
     app:
       replicaCount: 3
+    prometheus:
+      alerting:
+        memoryUsage:
+          thresholdRatio: 0.1
