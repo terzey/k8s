@@ -9,6 +9,7 @@ spec:
   values:
     app:
       replicaCount: 2
+  mon:
     prometheus:
       alerting:
         memoryUsage:
