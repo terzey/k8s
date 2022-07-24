@@ -1,35 +1,35 @@
 # K8S
 ## Repository structure
 ```shell
-├── apps
+├── apps                    # Applications deployment
 │   ├── base
 │   ├── dev
 │   ├── stage
 │   └── prod
-├── clusters                # Flux resources installed to "flux-system" kubernetes namespace
+├── clusters                # Flux resources deployed to "flux-system" kubernetes namespace
 │   ├── dev                 # Flux resources for dev cluster
 │   │   ├── flux-system     # Bootstrapped by "terraform/flux-bootstrap/dev"
 │   │   └── flux-resources  # Custom Flux resources: HelmRepository(ies), Kustomization(s), Alert(s)
 │   ├── stage               # Flux resources for stage cluster
 │   └── prod                # Flux resources for prod cluster
-├── infrastructure
+├── infrastructure          # Deployed by flux: monitoring, alerting, ingress controllers, service mesh, etc.
 │   ├── base
 │   │   └── prometheus
 │   ├── dev
 │   ├── stage
 │   └── prod 
-└── terraform
-    ├── kubernetes
+└── terraform               # IaC
+    ├── kubernetes          # Deploy kubernetes cluster 
     │   ├── main
     │   ├── dev
     │   ├── stage
     │   └── prod
-    ├── infrastructure
+    ├── infrastructure      # Kubernetes cluster-wide and external resources: namespaces, kubernetes dashboard, helm repositories
     │   ├── main
     │   ├── dev
     │   ├── stage
     │   └── prod
-    └── flux-bootstrap
+    └── flux-bootstrap      # Bootstraps flux to clusters/[dev/state/prod]
         ├── main
         ├── dev
         ├── stage
