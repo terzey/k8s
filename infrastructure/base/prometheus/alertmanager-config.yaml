@@ -2,19 +2,16 @@ apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
   name: alertmanager-config
-  namespace: monitoring
+  namespace: apps
   labels:
     alertmanagerConfig: alertmanager-config
 spec:
   route:
     groupBy: ['job']
-    groupWait: 30s
-    groupInterval: 5m
-    repeatInterval: 12h
+    groupWait: 3s
+    groupInterval: 3s
+    repeatInterval: 3s
     receiver: 'slack'
-    matchers:
-      - name: namespace
-        value: apps
   receivers:
     - name: 'slack'
       slackConfigs:
@@ -28,4 +25,4 @@ data:
 kind: Secret
 metadata:
   name: slack-url
-  namespace: monitoring
+  namespace: apps
