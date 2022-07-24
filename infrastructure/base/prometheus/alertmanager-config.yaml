@@ -13,5 +13,15 @@ spec:
     receiver: 'slack'
   receivers:
     - name: 'slack'
-      wechatConfigs:
-        - apiURL: 'https://hooks.slack.com/services/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EugeneTerzey-MBP:k8s'
+      slackConfigs:
+        - apiURL:
+            name: slack-url
+            key: address
+---
+apiVersion: v1
+data:
+  address: aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDAzUEtBM0JSTlovQjAzUVNRNUtSQkovWkZ5Q0FEdDNkRHpkdGVEeWdBUW5WZnZr
+kind: Secret
+metadata:
+  name: slack-url
+  namespace: monitoring
