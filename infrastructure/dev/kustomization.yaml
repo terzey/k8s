@@ -3,3 +3,9 @@ kind: Kustomization
 
 resources:
   - ../base
+  - prometheus/alertmanager-config.yaml
+
+patchesStrategicMerge:
+  - prometheus/alertmanager.yaml
+  - prometheus/prometheus.yaml
+  - prometheus/prometheus-adapter.yaml
