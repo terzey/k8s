@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - git::https://github.com/prometheus-operator/kube-prometheus.git?ref=release-0.11
+  - alertmanager-config.yaml
 
 patchesStrategicMerge:
   - clusterrole--prometheus-k8s.yml
-  - alertmanager-config.yaml
