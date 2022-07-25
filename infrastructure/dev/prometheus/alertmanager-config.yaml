@@ -20,10 +20,10 @@ spec:
         - apiURL:
             name: slack-url
             key: address
-          channel: '#alerts'
-          sendResolved: true
-          title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
-          text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
+ #         channel: '#alerts'
+ #         sendResolved: true
+ #         title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
+ #         text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
 ---
 apiVersion: v1
 data:
