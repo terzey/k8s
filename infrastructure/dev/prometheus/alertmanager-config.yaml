@@ -14,22 +14,16 @@ spec:
     groupInterval: 5m
     repeatInterval: 12h
     receiver: 'slack'
-    matchers: []
-    receivers:
-      - name: Watchdog
-        matchers:
-          - name: alertname
-            value: Watchdog
-            continue: false
-      - name: slack
-        slackConfigs:
-          - apiURL:
-              name: slack-url
-              key: address
-            chanel: '#alerts'
-            sendResolved: true
-            title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
-            text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
+  receivers:
+    - name: slack
+      slackConfigs:
+        - apiURL:
+            name: slack-url
+            key: address
+          channel: '#alerts'
+          sendResolved: true
+          title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
+          text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
 ---
 apiVersion: v1
 data:
