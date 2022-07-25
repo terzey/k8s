@@ -13,8 +13,14 @@ spec:
     groupWait: 30s
     groupInterval: 5m
     repeatInterval: 12h
-    receiver: 'slack-web-svc'
+    receiver: 'null'
   receivers:
+    - name: null
+      slackConfigs:
+        - apiURL:
+            name: slack-url-web-svc
+            key: address
+          sendResolved: true
     - name: slack-web-svc
       slackConfigs:
         - apiURL:
