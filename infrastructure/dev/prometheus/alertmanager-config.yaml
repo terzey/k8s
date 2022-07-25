@@ -4,7 +4,7 @@ apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
   name: alertmanager-config-web-svc
-  namespace: monitoring
+  namespace: apps
   labels:
     alertmanagerConfig: alertmanager-config
 spec:
@@ -15,12 +15,6 @@ spec:
     repeatInterval: 12h
     receiver: 'slack-web-svc'
   receivers:
-    - name: 'null--web-svc'
-      slackConfigs:
-        - apiURL:
-            name: slack-url-web-svc
-            key: address
-          sendResolved: true
     - name: slack-web-svc
       slackConfigs:
         - apiURL:
@@ -34,4 +28,4 @@ data:
 kind: Secret
 metadata:
   name: slack-url-web-svc
-  namespace: monitoring
+  namespace: apps
