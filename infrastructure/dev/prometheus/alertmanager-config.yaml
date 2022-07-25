@@ -13,9 +13,9 @@ spec:
     groupWait: 30s
     groupInterval: 5m
     repeatInterval: 12h
-    receiver: 'null'
+    receiver: 'slack-web-svc'
   receivers:
-    - name: 'null'
+    - name: 'null--web-svc'
       slackConfigs:
         - apiURL:
             name: slack-url-web-svc
