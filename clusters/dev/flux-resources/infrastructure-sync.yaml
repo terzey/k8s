@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: infrastructure
 spec:
-  interval: 1m0s
+  interval: 5m0s
   path: ./infrastructure/dev
   prune: true
   sourceRef:

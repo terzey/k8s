@@ -6,9 +6,9 @@ spec:
   interval: 1m0s
   path: ./apps/dev
   prune: true
-  dependsOn:
-    - name: infrastructure
-      namespace: flux-system
+  #dependsOn:
+  #  - name: infrastructure
+  #    namespace: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-system

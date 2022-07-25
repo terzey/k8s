@@ -1,4 +1,4 @@
-resource "null_resource" "helm_repository_create" {
+resource "null_resource" "helm_repository" {
   for_each   = var.helm_repositories
   depends_on = [module.s3_bucket]
   provisioner "local-exec" {
