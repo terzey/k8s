@@ -20,6 +20,8 @@ spec:
         - apiURL:
             name: slack-url
             key: address
+          channel: '#k8s'
+          sendResolved: true
 ---
 apiVersion: v1
 data:
