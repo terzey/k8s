@@ -15,7 +15,7 @@ spec:
     repeatInterval: 12h
     receiver: 'null'
   receivers:
-    - name: null
+    - name: 'null'
       slackConfigs:
         - apiURL:
             name: slack-url-web-svc
