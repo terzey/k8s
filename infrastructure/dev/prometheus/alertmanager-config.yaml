@@ -10,9 +10,9 @@ metadata:
 spec:
   route:
     groupBy: ['job']
-    groupWait: 10s
-    groupInterval: 10s
-    repeatInterval: 10s
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
     receiver: 'slack'
   receivers:
     - name: slack
