@@ -6,7 +6,7 @@ metadata:
   name: alertmanager-config-web-svc
   namespace: apps
   labels:
-    alertmanagerConfig: alertmanager-config
+    alertmanagerConfig: 'true'
 spec:
   route:
     groupBy: ['job']
