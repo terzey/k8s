@@ -13,4 +13,4 @@ spec:
       prometheus:
         alerting:
           memoryUsage:
-            thresholdRatio: 0.5
+            thresholdRatio: 0.8
