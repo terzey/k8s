@@ -5,7 +5,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.23
+      version: 0.1.25
   values:
     app:
       replicaCount: 1
@@ -13,4 +13,4 @@ spec:
       prometheus:
         alerting:
           memoryUsage:
-            thresholdRatio: 0.5
+            thresholdRatio: 0.8
