@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - git::https://github.com/grafana-operator/grafana-operator.git/deploy//manifests?ref=v4.5.1
+  - grafana.yaml
