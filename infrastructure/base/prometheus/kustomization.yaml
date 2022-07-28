@@ -7,4 +7,4 @@ resources:
 patchesStrategicMerge:
   - clusterrole--prometheus-k8s.yml
   - alertmanager.yaml
-  #- grafana.yaml
+  - grafana.yaml
