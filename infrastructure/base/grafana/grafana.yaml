@@ -37,3 +37,5 @@ spec:
     annotations:
       app: grafana
     replicas: 1
+    baseImage: grafana/grafana:8.5.5
+    
