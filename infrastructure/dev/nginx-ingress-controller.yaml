@@ -1,0 +1,9 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ingress-controller
+spec:
+  values:
+    replicaCount: 1
+    defaultBackend:
+      replicaCount: 1
