@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: bitnami/grafana-operator
-      version: 4.5.1
+      version: 2.6.7
       sourceRef:
         kind: HelmRepository
         name: bitnami
