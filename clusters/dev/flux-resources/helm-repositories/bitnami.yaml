@@ -3,5 +3,6 @@ kind: HelmRepository
 metadata:
   name: bitnami
 spec:
-  interval: 10m0s
+  interval: 24h0m0s
+  timeout: 10m
   url: https://charts.bitnami.com/bitnami
