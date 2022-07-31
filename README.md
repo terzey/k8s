@@ -56,3 +56,7 @@ kubectl get namespace flux-system -o json > flux-system.json
 jq '.spec.finalizers = []' flux-system.json > flux-system-1.json
 kubectl replace --raw "/api/v1/namespaces/flux-system/finalize" -f ./flux-system-1.json
 ```
+Inspect overlay resources
+```shell
+ kustomize build overlay_path | kubesplit -o ./build/ -p -c
+```
