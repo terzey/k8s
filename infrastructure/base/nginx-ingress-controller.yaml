@@ -4,7 +4,7 @@ metadata:
   name: ingress-controller
   namespace: infrastructure
 spec:
-  interval: 10m0s
+  interval: 1m0s
   releaseName: nginx-ingress-controller
   chart:
     spec:
