@@ -5,5 +5,5 @@ namespace: apps
 resources:
   - ../base
 
-patchesStrategicMerge: []
-  #- web-svc.yaml
+patchesStrategicMerge: 
+  - web-svc.yaml
