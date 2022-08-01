@@ -24,10 +24,13 @@ spec:
               name: release-name-nginx-ingress-controller
             patch:
               - op: add
+                path: /annotations/-
+                value: hello-patch
+              - op: add
                 path: /rules/-
                 value: 
                   apiGroups:
-                  - coordination.k8s.io
+                    - coordination.k8s.io
                   resources:
                     - leases
                   verbs:
