@@ -17,6 +17,7 @@ spec:
       interval: 10m0s
   values:
     alertmanager:
+      enabled: true
       configSelector:
         matchLabels:
           alertmanagerConfig: 'true'
