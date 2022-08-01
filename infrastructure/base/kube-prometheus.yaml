@@ -21,4 +21,5 @@ spec:
       configSelector:
         matchLabels:
           alertmanagerConfig: 'true'
-      configNamespaceSelector: {}
+      configNamespaceSelector: 
+        matchLabels: {}
