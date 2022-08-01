@@ -24,8 +24,9 @@ spec:
               name: release-name-nginx-ingress-controller
             patch:
               - op: add
-                path: /annotations/-
-                value: hello-patch
+                path: /metadata/labels
+                value:
+                  msg: hello-patch
               - op: add
                 path: /rules/-
                 value: 
