@@ -8,5 +8,5 @@ patchesStrategicMerge:
   - prometheus/alertmanager.yaml
   - prometheus/prometheus.yaml
   - prometheus/prometheus-adapter.yaml
-  #- nginx-ingress-controller.yaml
+  - nginx-ingress-controller.yaml
   
