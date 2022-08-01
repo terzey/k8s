@@ -21,7 +21,7 @@ spec:
               version: v1
               group: rbac.authorization.k8s.io
               kind: ClusterRole
-              name: release-name-nginx-ingress-controller
+              name: nginx-ingress-controller
             patch:
               - op: add
                 path: /metadata/labels
