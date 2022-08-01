@@ -23,19 +23,19 @@ spec:
               kind: ClusterRole
               name: release-name-nginx-ingress-controller
             patch:
-              op: add
-              path: /rules/-
-              value: 
-                apiGroups:
-                - coordination.k8s.io
-                resources:
-                  - leases
-                verbs:
-                  - list
-                  - watch
-                  - get
-                  - update
-                  - apply
-                  - patch
-                  - delete
-                  - create
+              - op: add
+                path: /rules/-
+                value: 
+                  apiGroups:
+                  - coordination.k8s.io
+                  resources:
+                    - leases
+                  verbs:
+                    - list
+                    - watch
+                    - get
+                    - update
+                    - apply
+                    - patch
+                    - delete
+                    - create
