@@ -5,8 +5,8 @@ resources:
   - ../base
 
 patchesStrategicMerge:
-  - prometheus/alertmanager.yaml
-  - prometheus/prometheus.yaml
-  - prometheus/prometheus-adapter.yaml
+  #- prometheus/alertmanager.yaml
+  #- prometheus/prometheus.yaml
+  #- prometheus/prometheus-adapter.yaml
   - nginx-ingress-controller.yaml
   
