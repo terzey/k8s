@@ -24,6 +24,7 @@ spec:
               group: rbac.authorization.k8s.io
               kind: ClusterRole
               name: nginx-ingress-controller
+              namespace: infrastructure
             patch:
               - op: add
                 path: /rules/-
