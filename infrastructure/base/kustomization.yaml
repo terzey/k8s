@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
   #- prometheus
+  - kube-prometheus.yaml
   - grafana
   - nginx-ingress-controller.yaml
