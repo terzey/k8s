@@ -2,13 +2,14 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: ingress-controller
-  namespace: default
+  namespace: infrastructure
 spec:
   interval: 10m0s
   releaseName: nginx-ingress-controller
   chart:
     spec:
       chart: nginx-ingress-controller
+      version: 9.2.23
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -23,10 +24,6 @@ spec:
               kind: ClusterRole
               name: nginx-ingress-controller
             patch:
-              - op: add
-                path: /metadata/labels
-                value:
-                  msg: hello-patch
               - op: add
                 path: /rules/-
                 value: 
