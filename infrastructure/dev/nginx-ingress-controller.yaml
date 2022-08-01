@@ -5,6 +5,8 @@ metadata:
   namespace: infrastructure
 spec:
   values:
+    kind: Deployment
     replicaCount: 1
     defaultBackend:
-      replicaCount: 1
+      enabled: false
+
