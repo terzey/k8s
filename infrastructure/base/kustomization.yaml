@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - prometheus
   - grafana
-  - nginx-ingress-controller.yaml
+  #- nginx-ingress-controller.yaml
