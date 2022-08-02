@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ../base
+  - nginx-config.yaml
 
 patchesStrategicMerge:
   - nginx-ingress-controller.yaml
