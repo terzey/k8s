@@ -6,3 +6,4 @@ resources:
   - kube-prometheus.yaml
   - grafana-operator.yaml
   - nginx-ingress-controller.yaml
+  - metrics-server.yaml
