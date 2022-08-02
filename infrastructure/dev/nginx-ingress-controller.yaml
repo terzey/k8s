@@ -7,8 +7,6 @@ spec:
   values:
     kind: Deployment
     replicaCount: 1
-    extraArgs: 
-      worker_processes: 1
     defaultBackend:
       enabled: false
 
