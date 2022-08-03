@@ -23,6 +23,9 @@ spec:
       enabled: false
       replicaCount: 1
       skipCreateAdminAccount: false
+      jsonnetLibrarySelector:
+        matchLabels:
+          app: grafana
     extraDeploy:
       - apiVersion: integreatly.org/v1alpha1
         kind: GrafanaDataSource
@@ -69,6 +72,6 @@ spec:
           dashboardLabelSelector:
             - matchExpressions:
                 - { key: app, operator: In, values: [ grafana ] }
-          libraryLabelSelector:
+          jsonnetLibrarySelector:
             matchLabels:
               app: grafana
