@@ -72,3 +72,6 @@ spec:
           dashboardLabelSelector:
             - matchExpressions:
                 - { key: app, operator: In, values: [ grafana ] }
+          jsonnetLibrarySelector:
+            matchLabels:
+              app: grafana
