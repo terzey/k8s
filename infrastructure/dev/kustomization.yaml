@@ -4,6 +4,6 @@ namespace: infrastructure
 
 resources: 
   - ../base
-  - nginx-config.yaml
+  #- nginx-config.yaml
 
   
