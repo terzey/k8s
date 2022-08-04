@@ -19,22 +19,10 @@ spec:
       scanNamespaces:
         - default
         - apps
-      image:
-        registry: quay.io
-        repository: grafana-operator/grafana-operator
-        tag: v4.5.1
-      command:
-        - /manager
-    jsonnetLibrarySelector:
-      matchLabels:
-        app: grafana
     grafana:
       enabled: false
       replicaCount: 1
       skipCreateAdminAccount: false
-      jsonnetLibrarySelector:
-        matchLabels:
-          app: grafana
     extraDeploy:
       - apiVersion: integreatly.org/v1alpha1
         kind: GrafanaDataSource
@@ -81,7 +69,4 @@ spec:
           dashboardLabelSelector:
             - matchExpressions:
                 - { key: app, operator: In, values: [ grafana ] }
-          jsonnet:
-            libraryLabelSelector:
-              matchExpressions:
-                - {key: app, operator: In, values: [ grafana ]}
+                    
