@@ -6,5 +6,5 @@ resources:
   #- kube-prometheus.yaml
   #- grafana-operator.yaml
   #- nginx-ingress-controller.yaml
-  - nginx-ingressyaml
+  - nginx-ingress.yaml
   #- metrics-server.yaml
