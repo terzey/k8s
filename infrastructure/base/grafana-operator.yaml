@@ -23,6 +23,8 @@ spec:
         registry: quay.io
         repository: grafana-operator/grafana-operator
         tag: v4.5.1
+      command:
+        - /manager
     jsonnetLibrarySelector:
       matchLabels:
         app: grafana
