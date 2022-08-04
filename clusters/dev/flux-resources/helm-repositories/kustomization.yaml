@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - bitnami.yaml
   - web-svc.yaml
+  - nginx-stable.yaml

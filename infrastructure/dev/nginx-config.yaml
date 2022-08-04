@@ -1,6 +1,6 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: nginx-ingress-controller
+  name: nginx-ingress
 data:
   worker-processes: "1"
