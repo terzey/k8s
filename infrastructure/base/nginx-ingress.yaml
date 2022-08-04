@@ -5,6 +5,7 @@ metadata:
 spec:
   interval: 1m0s
   releaseName: nginx-ingress
+  timeout: 30
   chart:
     spec:
       chart: nginx-ingress
@@ -13,7 +14,6 @@ spec:
         name: nginx-stable
         namespace: flux-system
       interval: 10m0s
-      timeout: 30
   values:
     ingressClass: nginx-ingress
     service:
