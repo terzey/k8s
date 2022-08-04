@@ -14,31 +14,3 @@ spec:
         name: bitnami
         namespace: flux-system
       interval: 10m0s
-  values:
-    kind: DaemonSet
-  # Remove the patch below when the issue is fixed: https://github.com/bitnami/charts/issues/11192
-  postRenderers:
-    - kustomize:
-        patchesJson6902:
-          - target:
-              version: v1
-              group: rbac.authorization.k8s.io
-              kind: ClusterRole
-              name: nginx-ingress-controller
-            patch:
-              - op: add
-                path: /rules/-
-                value: 
-                  apiGroups:
-                    - coordination.k8s.io
-                  resources:
-                    - leases
-                  verbs:
-                    - list
-                    - watch
-                    - get
-                    - update
-                    - apply
-                    - patch
-                    - delete
-                    - create
