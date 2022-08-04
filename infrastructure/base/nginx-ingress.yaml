@@ -15,3 +15,5 @@ spec:
       interval: 10m0s
   values:
     ingressClass: nginx-ingress
+    service:
+      type: ClusterIP
