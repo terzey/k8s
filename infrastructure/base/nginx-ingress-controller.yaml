@@ -1,10 +1,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: nginx-ingress
+  name: nginx-ingress-controller
 spec:
   interval: 1m0s
-  releaseName: nginx-ingress
+  releaseName: nginx-ingress-controller
   chart:
     spec:
       chart: nginx-ingress-controller
@@ -24,7 +24,7 @@ spec:
               version: v1
               group: rbac.authorization.k8s.io
               kind: ClusterRole
-              name: nginx-ingress-nginx-ingress-controller
+              name: nginx-ingress-controller-nginx-ingress-controller
             patch:
               - op: add
                 path: /rules/-
