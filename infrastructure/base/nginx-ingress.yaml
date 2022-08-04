@@ -5,7 +5,7 @@ metadata:
 spec:
   interval: 1m0s
   releaseName: nginx-ingress
-  timeout: 30
+  timeout: "30"
   chart:
     spec:
       chart: nginx-ingress
