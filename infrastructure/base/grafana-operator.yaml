@@ -20,7 +20,8 @@ spec:
         - default
         - apps
       image:
-        repository: quay.io/grafana-operator/grafana-operator
+        registry: quay.io
+        repository: grafana-operator/grafana-operator
         tag: v4.5.1
     jsonnetLibrarySelector:
       matchLabels:
