@@ -19,3 +19,5 @@ spec:
       ingressClass: nginx-ingress
       service:
         type: ClusterIP
+      config:
+        name: nginx-ingress
