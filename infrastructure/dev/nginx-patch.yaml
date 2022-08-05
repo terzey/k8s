@@ -8,4 +8,4 @@ spec:
     kind: Deployment
     replicaCount: 1
     defaultBackend:
-      enable: false
+      enabled: false
