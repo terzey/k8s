@@ -22,6 +22,8 @@ spec:
       type: ClusterIP
     defaultBackend:
       enabled: true
+    config: 
+      worker-processes: 1
   # Remove the patch below when the issue is fixed: https://github.com/bitnami/charts/issues/11192
   postRenderers:
     - kustomize:
@@ -30,7 +32,8 @@ spec:
               version: v1
               group: rbac.authorization.k8s.io
               kind: ClusterRole
-              name: nginx-ingress
+              # name should be {{ .Release.Name }}-{{ .Chart.Name }}
+              name: nginx-ingress-nginx-ingress-controller
             patch:
               - op: add
                 path: /rules/-
