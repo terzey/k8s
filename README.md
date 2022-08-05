@@ -59,3 +59,7 @@ Inspect overlay resources
 ```shell
  kustomize build overlay_path | kubesplit -o ./build/ -p -c
 ```
+Describe helm release
+```shell
+kubectl describe -n <namespace> helmrelease/<release-name>
+```
