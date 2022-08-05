@@ -54,7 +54,7 @@ spec:
               runAsUser: 1001
               allowPrivilegeEscalation: false
           service:
-            type: LoadBalancer
+            type: ClusterIP
           ingress:
             enabled: false
           config:
