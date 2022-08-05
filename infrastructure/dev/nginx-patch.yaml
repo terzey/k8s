@@ -5,6 +5,7 @@ metadata:
   name: nginx-ingress
 spec:
   values:
+    kind: Deployment
     replicaCount: 1
     defaultBackend:
       enable: false

@@ -1,7 +1,0 @@
-kind: Deployment
-ingressClassResource:
-  name: nginx-ingress
-service:
-  type: ClusterIP
-defaultBackend:
-  enabled: false

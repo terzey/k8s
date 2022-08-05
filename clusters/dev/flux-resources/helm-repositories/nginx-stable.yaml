@@ -1,8 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: nginx-stable
-spec:
-  interval: 24h0m0s
-  timeout: 10m
-  url: https://helm.nginx.com/stable
