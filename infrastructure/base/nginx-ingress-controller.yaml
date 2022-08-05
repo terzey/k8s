@@ -23,7 +23,9 @@ spec:
     defaultBackend:
       enabled: true
     config: 
-      worker-processes: 1
+      name: nginx-ingress
+      entries: 
+        worker-processes: "1"
   # Remove the patch below when the issue is fixed: https://github.com/bitnami/charts/issues/11192
   postRenderers:
     - kustomize:
