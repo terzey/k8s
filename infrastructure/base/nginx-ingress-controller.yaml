@@ -16,12 +16,12 @@ spec:
       interval: 10m0s
   values:
     kind: Deployment
-    controller:
-      ingressClass: nginx-ingress
-      service:
-        type: ClusterIP
-      config:
-        name: nginx-ingress
+    ingressClassResource:
+      name: nginx-ingress
+    service:
+      type: ClusterIP
+    defaultBackend:
+      enabled: true
   # Remove the patch below when the issue is fixed: https://github.com/bitnami/charts/issues/11192
   postRenderers:
     - kustomize:
