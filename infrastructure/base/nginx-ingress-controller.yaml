@@ -7,7 +7,7 @@ spec:
   releaseName: nginx-ingress
   chart:
     spec:
-      chart: nginx-ingress
+      chart: nginx-ingress-controller
       version: 9.2.25
       sourceRef:
         kind: HelmRepository
