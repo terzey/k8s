@@ -5,6 +5,6 @@ namespace: infrastructure
 resources:
   - kube-prometheus.yaml
   - grafana-operator.yaml
-  #- nginx-ingress-controller.yaml
+  - nginx-ingress-controller.yaml
   #- nginx-ingress.yaml
   - metrics-server.yaml

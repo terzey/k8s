@@ -6,4 +6,5 @@ resources:
   - ../base
   - nginx-config.yaml
 
-  
+patchesStrategicMerge:
+  - nginx-patch.yaml

@@ -1,3 +1,4 @@
+# https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:

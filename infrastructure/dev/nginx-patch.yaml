@@ -1,0 +1,11 @@
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: infrastructure
+spec:
+  values:
+    replicaCount: 1
+    defaultBackend:
+      enable: false
