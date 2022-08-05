@@ -11,3 +11,10 @@ metadata:
   name: nginx-ingress-controller
 data:
   worker-processes: "1"
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-ingress-nginx-ingress-controller
+data:
+  worker-processes: "1"
