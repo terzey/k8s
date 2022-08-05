@@ -2,9 +2,8 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: grafana-operator
-  namespace: infrastructure
 spec:
-  interval: 10m0s
+  interval: 1m0s
   releaseName: grafana-operator
   chart:
     spec:
@@ -35,7 +34,7 @@ spec:
             - name: Prometheus
               type: prometheus
               access: proxy
-              url: http://prometheus-k8s.monitoring.svc:9090
+              url: http://kube-prometheus-prometheus.infrastructure.svc:9090
               isDefault: true
               version: 1
               editable: true
@@ -55,7 +54,7 @@ spec:
               runAsUser: 1001
               allowPrivilegeEscalation: false
           service:
-            type: LoadBalancer
+            type: ClusterIP
           ingress:
             enabled: false
           config:
@@ -70,4 +69,4 @@ spec:
           dashboardLabelSelector:
             - matchExpressions:
                 - { key: app, operator: In, values: [ grafana ] }
-
+                    

@@ -1,12 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: infrastructure
 
-resources:
+resources: 
   - ../base
 
 patchesStrategicMerge:
-  - prometheus/alertmanager.yaml
-  - prometheus/prometheus.yaml
-  - prometheus/prometheus-adapter.yaml
-  - nginx-ingress-controller.yaml
-  
+  - nginx-patch.yaml

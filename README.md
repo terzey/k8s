@@ -3,7 +3,7 @@
 ```shell
 ├── apps                    # Applications deployment
 │   ├── base
-│   ├── dev
+│   ├── dev                 # Dev kustomization
 │   ├── stage
 │   └── prod
 ├── clusters                # Flux resources deployed to "flux-system" kubernetes namespace
@@ -12,10 +12,9 @@
 │   │   └── flux-resources  # Custom Flux resources: HelmRepository(ies), Kustomization(s), Alert(s)
 │   ├── stage               # Flux resources for stage cluster
 │   └── prod                # Flux resources for prod cluster
-├── infrastructure          # Deployed by flux: monitoring, alerting, ingress controllers, service mesh, etc.
+├── infrastructure          # Deployed by flux: monitoring, alerting, grafana, ingress controllers, service mesh, etc.
 │   ├── base
-│   │   └── prometheus
-│   ├── dev
+│   ├── dev                 # Dev kustomization
 │   ├── stage
 │   └── prod 
 └── terraform               # IaC
@@ -59,4 +58,8 @@ kubectl replace --raw "/api/v1/namespaces/flux-system/finalize" -f ./flux-system
 Inspect overlay resources
 ```shell
  kustomize build overlay_path | kubesplit -o ./build/ -p -c
+```
+Describe helm release
+```shell
+kubectl describe -n <namespace> helmrelease/<release-name>
 ```
