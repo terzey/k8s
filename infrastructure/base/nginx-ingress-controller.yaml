@@ -22,10 +22,7 @@ spec:
       type: ClusterIP
     defaultBackend:
       enabled: true
-    config: 
-      name: nginx-ingress
-      entries: 
-        worker-processes: "1"
+    config: nginx-ingress
   # Remove the patch below when the issue is fixed: https://github.com/bitnami/charts/issues/11192
   postRenderers:
     - kustomize:
