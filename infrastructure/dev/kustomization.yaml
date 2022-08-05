@@ -5,5 +5,5 @@ namespace: infrastructure
 resources: 
   - ../base
 
-patchesStrategicMerge: []
-  #- nginx-patch.yaml
+patchesStrategicMerge:
+  - nginx-patch.yaml
