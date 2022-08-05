@@ -21,9 +21,7 @@ spec:
     service:
       type: ClusterIP
     defaultBackend:
-      enabled: true
-      extraArgs:
-        worker-processes: "1"
+      enabled: false
   # Remove the patch below when the issue is fixed: https://github.com/bitnami/charts/issues/11192
   postRenderers:
     - kustomize:
