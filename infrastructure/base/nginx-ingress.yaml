@@ -18,4 +18,3 @@ spec:
     ingressClass: nginx-ingress
     service:
       type: ClusterIP
-      create: false
