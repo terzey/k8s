@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-ingress
+  rules:
+  - host: grafana.kubernetes.docker.internal
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana-service
+            port:
+              number: 3000
+  - host: prometheus.kubernetes.docker.internal
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend: 
+            service:
+              name: kube-prometheus-prometheus
+              port:
+                number: 9090
+  - host: alertmanager.kubernetes.docker.internal
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend: 
+            service:
+              name: kube-prometheus-alertmanager
+              port:
+                number: 9093
