@@ -7,3 +7,4 @@ resources:
   - grafana-operator.yaml
   - nginx-ingress.yaml
   - metrics-server.yaml
+  - flagger.yaml

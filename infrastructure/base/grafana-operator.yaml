@@ -34,7 +34,7 @@ spec:
             - name: Prometheus
               type: prometheus
               access: proxy
-              url: http://kube-prometheus-prometheus.infrastructure.svc:9090
+              url: http://kube-prometheus-prometheus.infrastructure.svc.cluster.local:9090
               isDefault: true
               version: 1
               editable: true

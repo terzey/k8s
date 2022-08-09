@@ -4,6 +4,7 @@ namespace: infrastructure
 
 resources: 
   - ../base
+  - ingress.yaml
 
 patchesStrategicMerge:
   - nginx-patch.yaml
