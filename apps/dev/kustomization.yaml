@@ -14,7 +14,7 @@ patches:
       spec:
         chart:
           spec:
-            version: 0.1.38
+            version: 0.1.37
         values:
           app:
             replicaCount: 1
