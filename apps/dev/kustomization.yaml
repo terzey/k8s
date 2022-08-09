@@ -6,20 +6,20 @@ resources:
   - ../base
 
 patches:
-    - patch: |-
-        apiVersion: helm.toolkit.fluxcd.io/v2beta1
-        kind: HelmRelease
-        metadata:
-          name: web-svc
-        spec:
-          chart:
-            spec:
-              version: 0.1.38
-          values:
-            app:
-              replicaCount: 1
-            mon:
-              prometheus:
-                alerting:
-                  memoryUsage:
-                    thresholdRatio: 0.8
+  - patch: |-
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: web-svc
+      spec:
+        chart:
+          spec:
+            version: 0.1.38
+        values:
+          app:
+            replicaCount: 1
+          mon:
+            prometheus:
+              alerting:
+                memoryUsage:
+                  thresholdRatio: 0.8
