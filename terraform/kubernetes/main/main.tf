@@ -17,6 +17,7 @@ terraform {
 provider "kind" {}
 
 resource "kind_cluster" "this" {
+  count          = local.use_kind ? 1 : 0
   name           = var.cluster_name
   wait_for_ready = true
   kind_config {
@@ -31,5 +32,13 @@ resource "kind_cluster" "this" {
     node {
       role = "worker"
     }
+  }
+}
+
+resource "null_resource" "minikube_cluster" {
+  count = local.use_minikube ? 1 : 0
+  provisioner "local-exec" {
+    when    = create
+    command = "minikube start"
   }
 }
