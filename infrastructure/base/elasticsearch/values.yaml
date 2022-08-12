@@ -1,0 +1,22 @@
+ingress:
+  enabled: true
+  pathType: Prefix
+  hostname: elasticsearch.kubernetes.docker.internal
+  path: /
+master:
+  replicaCount: 1
+  persistence:
+    selector: 
+      matchLabels:
+        app: elasticsearch
+data:
+  replicaCount: 0
+  persistence:
+    selector: 
+      matchLabels:
+        app: elasticsearch
+coordinating:
+  replicaCount: 1
+ingest:
+  enabled: false
+  replicaCount: 0
